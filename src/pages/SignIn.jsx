@@ -29,7 +29,7 @@ const SignIn = () => {
   const userRef = doc(db, "users", res.user.uid);
   const snap = await getDoc(userRef);
 
-  if (!snap.exists()) {
+  if (!docsnap.exists()) {
     await setDoc(userRef, {
       uid: res.user.uid,
       email: res.user.email,
