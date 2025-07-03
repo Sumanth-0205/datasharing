@@ -4,7 +4,8 @@ import { auth } from "../firebase/config";
 import { useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { Link } from "react-router-dom";
-
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 
 const SignIn = () => {
@@ -22,11 +23,26 @@ const SignIn = () => {
     const { email, password } = formData;
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
-    } catch (err) {
-      setError("Invalid email or password.");
-    }
+  const res = await signInWithEmailAndPassword(auth, email, password);
+
+  // ✅ Check if user doc exists — if not, create it
+  const userRef = doc(db, "users", res.user.uid);
+  const snap = await getDoc(userRef);
+
+  if (!snap.exists()) {
+    await setDoc(userRef, {
+      uid: res.user.uid,
+      email: res.user.email,
+      name: res.user.displayName || "Unnamed",
+      createdAt: new Date(),
+    });
+    console.log("User document added to Firestore after sign in");
+  }
+
+  navigate("/dashboard");
+} catch (err) {
+  setError("Invalid email or password.");
+}
   };
 
   return (
