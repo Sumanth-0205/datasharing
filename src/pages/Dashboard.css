@@ -1,0 +1,195 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #3A4F63; /* steel teal */
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard panel */
+.dashboard {
+  max-width: 580px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #4B5C6B; /* slate blue-gray */
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;
+  color: #E2E8F0;
+  text-align: center;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dashboard h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Theme toggle (purple) */
+.theme-toggle {
+  background-color: #7C4DFF;
+  color: #f3f3f3;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  float: right;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #5E35B1;
+}
+
+/* Form & input */
+.dashboard form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+    align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.dashboard input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #8492a6;
+  border-radius: 6px;
+  background-color: #5C6F7B;
+  color: #f3f3f3;
+  transition: all 0.2s ease;
+}
+
+.dashboard input::placeholder {
+  color: #bbb;
+}
+
+.dashboard input:focus {
+  outline: none;
+  border-color: #6594f6;
+  box-shadow: 0 0 0 2px rgba(101, 148, 246, 0.3);
+}
+
+/* 🟢 Add Button (green) */
+.dashboard form button[type="submit"] {
+  background-color: #4CAF50;
+  color: #f1f1f1;
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard form button[type="submit"]:hover {
+  background-color: #388E3C;
+}
+
+/* List container */
+.item-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.item-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3b3e4a;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  min-height: 48px;
+  transition: background 0.3s;
+}
+
+.item-list li:hover {
+  background: #4a4e5c;
+}
+
+.item-list span {
+  flex: 1;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+/* 🔴 DELETE Button (red) */
+.item-list .delete-btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item-list .delete-btn:hover {
+  background-color: #c62828;
+}
+
+/* 🔵 Sign Out Button (blue) */
+.logout-btn {
+  margin-top: 2rem;
+  background-color: #2196F3;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #1565C0;
+}
+
+/* 🌒 Dark mode adjustments */
+.dark {
+  background-color: #2f2f2f;
+  color: #ddd;
+}
+
+.dark input,
+.dark .item-list li {
+  background-color: #38404a;
+  color: #eee;
+  border-color: #555;
+}
+
+.dark .item-list .delete-btn {
+  background-color: #f44336;
+}
+
+.dark .item-list .delete-btn:hover {
+  background-color: #c62828;
+}
+
+.dark .logout-btn {
+  background-color: #3366cc;
+}
+
+.dark .logout-btn:hover {
+  background-color: #20459f;
+}
+
+.dark .theme-toggle {
+  background-color: #673AB7;
+}
+
+.dark .theme-toggle:hover {
+  background-color: #4527A0;
+}
